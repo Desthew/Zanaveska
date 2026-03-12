@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Дякуємо за замовлення</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1996452290936826');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1996452290936826&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+  <style>
+    :root {
+      --bg: #f6f7fb;
+      --white: #ffffff;
+      --text: #1d2433;
+      --muted: #667085;
+      --primary: #2b7cff;
+      --border: #e6e8ee;
+      --shadow: 0 18px 50px rgba(17, 24, 39, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Manrope", sans-serif;
+      background: linear-gradient(180deg, #eef4ff 0%, #f6f7fb 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text);
+      padding: 20px;
+    }
+
+    .thanks-card {
+      width: 100%;
+      max-width: 680px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      padding: 36px;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #eaf2ff;
+      color: var(--primary);
+      font-weight: 800;
+      padding: 8px 14px;
+      border-radius: 999px;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-size: clamp(30px, 5vw, 48px);
+      line-height: 1.1;
+      margin-bottom: 14px;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 17px;
+      margin-bottom: 28px;
+    }
+
+    .data-box {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 24px;
+      text-align: left;
+      margin-bottom: 26px;
+    }
+
+    .data-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 12px 0;
+      border-bottom: 1px solid #eaecef;
+    }
+
+    .data-row:last-child {
+      border-bottom: none;
+    }
+
+    .data-label {
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .data-value {
+      font-weight: 800;
+      text-align: right;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      max-width: 280px;
+      min-height: 54px;
+      border-radius: 14px;
+      background: var(--primary);
+      color: #fff;
+      font-weight: 800;
+      text-decoration: none;
+      transition: 0.25s ease;
+    }
+
+    .back-btn:hover {
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 600px) {
+      .thanks-card {
+        padding: 24px 18px;
+      }
+
+      .data-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .data-value {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="thanks-card">
+    <div class="badge">Ваше замовлення прийнято</div>
+    <h1>Дякуємо за замовлення!</h1>
+    <p class="subtitle">
+      Будь ласка, перевірте введені дані. Найближчим часом ми зв'яжемося з вами для підтвердження.
+    </p>
+
+    <div class="data-box">
+      <div class="data-row">
+        <span class="data-label">ПІБ:</span>
+        <span class="data-value" id="clientName">—</span>
+      </div>
+      <div class="data-row">
+        <span class="data-label">Телефон:</span>
+        <span class="data-value" id="clientPhone">—</span>
+      </div>
+      <div class="data-row">
+        <span class="data-label">Товар:</span>
+        <span class="data-value">Розумний пристрій для штор 3-в-1</span>
+      </div>
+      <div class="data-row">
+        <span class="data-label">Акційна ціна:</span>
+        <span class="data-value">699 грн</span>
+      </div>
+    </div>
+
+    <a class="back-btn" href="index.html">Повернутися назад</a>
+  </div>
+
+  <script>
+    const name = localStorage.getItem("orderFullname") || "Не вказано";
+    const phone = localStorage.getItem("orderPhone") || "Не вказано";
+
+    document.getElementById("clientName").textContent = name;
+    document.getElementById("clientPhone").textContent = phone;
+  </script>
+</body>
+</html>
