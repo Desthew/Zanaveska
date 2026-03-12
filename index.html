@@ -345,13 +345,16 @@
             />
 
             <label for="phone">Телефон</label>
-            <input
-              type="tel"
-              id="phone"
-              name="phone"
-              placeholder="+380 (__) ___-__-__"
-              required
-            />
+            <div class="phone-input-wrap">
+              <span class="phone-prefix">+38</span>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="(0__) ___-__-__"
+                required
+              />
+            </div>
 
             <button type="submit" class="btn btn-primary btn-full">
               Підтвердити замовлення

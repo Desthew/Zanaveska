@@ -98,7 +98,7 @@ if (orderForm) {
     e.preventDefault();
 
     const fullname = document.getElementById("fullname").value.trim();
-    const phone = document.getElementById("phone").value.trim();
+    const phone = "+38" + document.getElementById("phone").value.trim();
 
     if (fullname.length < 3) {
       alert("Будь ласка, введіть коректне ПІБ.");
